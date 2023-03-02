@@ -295,6 +295,7 @@ namespace XG171_DRONE {
     //% speed.min=10 speed.max=100
     //% angle.min=0 angle.max=180
     //% angle.defl=90 speed.defl=50
+    //% deviation.min=0 deviation.max=250 deviation.defl=5
     //% weight=86 color=#E854BC
     export function Servo_turn_with_speed_highaccuracy(speed: number, angle: number, deviation:number) {
 
