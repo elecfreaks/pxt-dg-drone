@@ -188,7 +188,7 @@ namespace XG171_DRONE {
         return 0
     }
     //% block="Vision shift %shiftstate by %distance cm"
-    //% distance.min=0 distance.max=180
+    //% distance.min=0 distance.max=100
     //% shiftstate.fieldEditor="gridpicker" shiftstate.fieldOptions.columns=2
     //% weight=65 subcategory=Visual color=#EE7C78
     export function Vision_shifts(shiftstate: Shiftoptions, distance: number): void {
