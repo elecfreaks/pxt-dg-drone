@@ -6,7 +6,7 @@ namespace XG171_DRONE {
     export enum WorkMode {
         //% block="Normal Mode" enumval=0
         Normalmode,
-        //% block="Tracking Line" enumval=1
+        //% block="Follow Line" enumval=1
         TrackingLine
     }
     export enum Angleoptions {
@@ -70,17 +70,17 @@ namespace XG171_DRONE {
         Blck = 0x14
     }
     export enum Identifyoptions{
-        //% block ="Target color block"
+        //% block="Target color block"
         Color_block = 0x01,
-        //% block ="Target QR code"
+        //% block="Target QR code"
         QR_code = 0x02,
-        //% block ="Obstacle"
+        //% block="Obstacle"
         Obstacle = 0x03,
-        //% block ="Black Line —"
+        //% block="Black Line ⎯"
         Horizontal_black_line =0x04,
-        //% block ="Black Line |"
+        //% block="Black Line │"
         Vertical_black_line = 0x05,
-        //% block ="Black Line +"
+        //% block="Black Line ┼"
         Cross_black_line = 0x06
     }
     /**
@@ -127,7 +127,7 @@ namespace XG171_DRONE {
     //% block="Visual deviation within %deviation cm, Adjust the altitude %altitude"
     //% altitude.min=10 altitude.max=250
     //% deviation.min=5 deviation.max=100
-    //% weight=87 subcategory=Visual
+    //% weight=87 subcategory=Visual color=#EE7C78
     export function Highaccuracy_altitude(deviation: number, altitude:number): void {
         // Add code here
     }
@@ -136,7 +136,7 @@ namespace XG171_DRONE {
     */
     //% block="Visual deviation within %deviation cm, Loading"
     //% deviation.min=5 deviation.max=100
-    //% weight=99 subcategory=Visual
+    //% weight=99 subcategory=Visual color=#EE7C78
     export function Highaccuracy_loading(deviation: number): void {
         // Add code here
     }
@@ -176,39 +176,49 @@ namespace XG171_DRONE {
     export function Rotation_action(rotationstate: Angleoptions, angle: number): void {
 
     }
+    //% block="Drone current height"
+    //% weight=69
+    export function Drone_current_height(): number{
+        return 0
+    }
+    //% block="Drone battery level"
+    //% weight=68
+    export function Drone_battery_level(): number {
+        return 0
+    }
     //% block="Vision shift %shiftstate by %distance cm"
     //% distance.min=0 distance.max=180
     //% shiftstate.fieldEditor="gridpicker" shiftstate.fieldOptions.columns=2
-    //% weight=65 subcategory=Visual
+    //% weight=65 subcategory=Visual color=#EE7C78
     export function Vision_shifts(shiftstate: Shiftoptions, distance: number): void {
 
     }
     //% block="Enter identify No. %codeid QR code Mode"
-    //% weight=61 subcategory=Visual
+    //% weight=61 subcategory=Visual color=#EE7C78
     export function Set_identify_QRcode(codeid: number) {
 
 
     }
     //% block="Follow No. %codeid QR code"
-    //% weight=60 subcategory=Visual
+    //% weight=60 subcategory=Visual color=#EE7C78
     export function Follow_QRcode(codeid:number){
         
     }
     //% block="Correct flight direction by QR code position"
-    //% weight=59 subcategory=Visual
+    //% weight=59 subcategory=Visual color=#EE7C78
     export function Correct_direction_byQR(color: Coloroptions) {
 
     }
     //% block="Enter identify %color Color block Mode"
     //% color.fieldEditor="gridpicker" color.fieldOptions.columns=2
-    //% weight=51 subcategory=Visual
+    //% weight=51 subcategory=Visual color=#EE7C78
     export function Set_identify_color(color: Coloroptions){
 
 
     }
     //% block="Follow color %color block"
     //% color.fieldEditor="gridpicker" color.fieldOptions.columns=2
-    //% weight=50 subcategory=Visual
+    //% weight=50 subcategory=Visual color=#EE7C78
     export function Follow_color(color: Coloroptions){
 
     }
@@ -216,17 +226,17 @@ namespace XG171_DRONE {
 
     //% block="Follow shape %shape"
     //% shape.fieldEditor="gridpicker" shape.fieldOptions.columns=3
-    //% weight=44 subcategory=Visual
+    //% weight=44 subcategory=Visual color=#EE7C78
     export function Follow_shape(shape: Shapeoptions) {
 
     }
     //% block="Enter identify black-line mode"
-    //% weight=43 subcategory=Visual
+    //% weight=43 subcategory=Visual color=#EE7C78
     export function Set_blackline_identify(color: Coloroptions) {
 
     }
     //% block="Identify target %state"
-    //% weight=42 subcategory=Visual
+    //% weight=42 subcategory=Visual color=#EE7C78
     //% state.fieldEditor="gridpicker"
     //% state.fieldOptions.columns=3
     export function Identify_target(state: Identifyoptions): boolean {
