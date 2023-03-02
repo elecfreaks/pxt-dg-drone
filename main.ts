@@ -96,8 +96,8 @@ namespace XG171_DRONE {
     * TODO: Set horizontal flight speed.
     */
     //% block="Set horizontal flight speed %speed cm/s"
-    //% speed.min=0 speed.max=100
-    //% weight=90
+    //% speed.min=0 speed.max=100 speed.defl=50
+    //% weight=90 
     export function Set_horizontal_speed(speed: number): void {
         // Add code here
     }
@@ -105,8 +105,7 @@ namespace XG171_DRONE {
     * TODO: Set vertical flight speed.
     */
     //% block="Set vertical flight speed %speed cm/s"
-    //% speed.min=10 speed.max=100
-    //% speed.defl=50
+    //% speed.min=10 speed.max=250 speed.defl=10
     //% weight=89
     export function Set_vertical_speed(speed: number): void {
         // Add code here
@@ -116,7 +115,7 @@ namespace XG171_DRONE {
     * @param altitude, eg: 100
     */
     //% block="Set flight altitude %altitude cm"
-    //% altitude.min=10 altitude.max=250
+    //% altitude.min=10 altitude.max=250 altitude.defl=10
     //% weight=88
     export function Set_flight_altitude(altitude: number): void {
         // Add code here
@@ -125,8 +124,8 @@ namespace XG171_DRONE {
     * TODO: Set precision.
     */
     //% block="Visual deviation within %deviation cm, Adjust the altitude %altitude"
-    //% altitude.min=10 altitude.max=250
-    //% deviation.min=5 deviation.max=100
+    //% altitude.min=10 altitude.max=250 altitude.defl=10
+    //% deviation.min=5 deviation.max=100 deviation.defl=5
     //% weight=87 subcategory=Visual color=#EE7C78
     export function Highaccuracy_altitude(deviation: number, altitude:number): void {
         // Add code here
@@ -135,7 +134,7 @@ namespace XG171_DRONE {
     * TODO: Set precision.
     */
     //% block="Visual deviation within %deviation cm, Loading"
-    //% deviation.min=5 deviation.max=100
+    //% deviation.min=5 deviation.max=100 deviation.defl=5
     //% weight=99 subcategory=Visual color=#EE7C78
     export function Highaccuracy_loading(deviation: number): void {
         // Add code here
@@ -144,7 +143,7 @@ namespace XG171_DRONE {
     * TODO: Takeoff.
     */
     //% block="Takeoff %altitude cm"
-    //% altitude.min=10 altitude.max=250
+    //% altitude.min=10 altitude.max=250 altitude.defl=100
     //% weight=86
     export function Takeoff(altitude: number): void {
         // Add code here
@@ -158,6 +157,7 @@ namespace XG171_DRONE {
     * TODO: Move
     */
     //% block="Move action %directionstate by %distance cm"
+    //% distance.min=0 distance.max=250 distance.defl=10
     //% directionstate.fieldEditor="gridpicker" directionstate.fieldOptions.columns=2
     //% weight=80
     export function Move_action(directionstate: Directionoptions, distance: number): void {
@@ -165,6 +165,7 @@ namespace XG171_DRONE {
     }
     //% block="Roll action %rollstate by %circle circle"
     //% rollstate.fieldEditor="gridpicker" rollstate.fieldOptions.columns=2
+    //% circle.min=1 circle.max=2 circle.defl=1
     //% weight=75
     export function Roll_action(rollstate: Rolloptions, circle:number): void {
 
