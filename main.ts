@@ -1,5 +1,5 @@
 /**
-* Functions to PlanetX sensor by Llane.
+* Functions to XG171_DRONE by Llane.
 */
 //% color=#56B7F7  icon="\uf005" block="XG171-DRONE" blockId="XG171"
 namespace XG171_DRONE {
