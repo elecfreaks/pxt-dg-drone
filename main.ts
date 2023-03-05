@@ -254,6 +254,39 @@ namespace XG171_DRONE {
         // Add code here
     }
     /**
+    * TODO: Set extension function.
+    */
+    //% block="Set extension magnet function $status"
+    //% status.shadow="toggleOnOff"
+    //% subcategory=Extended
+    //% weight=90 color=#E854BC
+    export function Extension_magnet_func(status: boolean): void {
+        // Add code here
+        Extension_func(status);
+    }
+    /**
+    * TODO: Set extension function.
+    */
+    //% block="Set extension webcam function $status"
+    //% status.shadow="toggleOnOff"
+    //% subcategory=Extended
+    //% weight=90 color=#E854BC
+    export function Extension_webcam_func(status: boolean): void {
+        // Add code here
+        Extension_func(status);
+    }
+    /**
+    * TODO: Set extension function.
+    */
+    //% block="Set extension avoid obstacle function $status"
+    //% status.shadow="toggleOnOff"
+    //% subcategory=Extended
+    //% weight=90 color=#E854BC
+    export function Extension_avoid_func(status: boolean): void {
+        // Add code here
+        Extension_func(status);
+    }
+    /**
     * TODO: Set precision.
     */
     //% block="Set Optical flow function $status"
