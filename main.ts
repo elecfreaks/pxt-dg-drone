@@ -83,6 +83,23 @@ namespace XG171_DRONE {
         //% block="Black Line ┼"
         Cross_black_line = 0x06
     }
+    function CheckSUM(arr:number[],len:number):number{
+        let totalSUM = 0
+        for (let i = 0; i < len; i++) {
+            totalSUM += arr[i]
+        }
+        totalSUM = 65535 - totalSUM
+        return totalSUM & 0xFF
+        
+    }
+    function Drone_sendData(arr:number[],len:number): void {
+        let myBuff = pins.createBuffer(len+1)
+        for (let i = 0; i < len; i++) {
+            myBuff.setNumber(NumberFormat.UInt8BE, i, arr[i])
+        }
+        myBuff.setNumber(NumberFormat.UInt8BE, myBuff.length - 1,CheckSUM(arr, len))
+        serial.writeBuffer(myBuff)
+    }
     /**
     * TODO: Set work mode.
     */
@@ -90,7 +107,16 @@ namespace XG171_DRONE {
     //% mode.fieldEditor="gridpicker" mode.fieldOptions.columns=2
     //% weight=91
     export function Set_work_mode(mode: WorkMode): void {
-        // Add code here
+        let loopNum:number = 0
+        let dataArr: number[]=[0x06,0x05,0x00]
+        dataArr[3] = mode
+        while(loopNum < 20)
+        {
+            Drone_sendData(dataArr,4)
+            control.waitMicros(20000)
+            loopNum++
+        }
+
     }
     /**
     * TODO: Set horizontal flight speed.
@@ -262,7 +288,7 @@ namespace XG171_DRONE {
     //% weight=89 color=#E854BC
     export function Extension_magnet_func(status: boolean): void {
         // Add code here
-        Extension_func(status);
+        Extension_func(status)
     }
     /**
     * TODO: Set extension function.
@@ -273,7 +299,7 @@ namespace XG171_DRONE {
     //% weight=88 color=#E854BC
     export function Extension_webcam_func(status: boolean): void {
         // Add code here
-        Extension_func(status);
+        Extension_func(status)
     }
     /**
     * TODO: Set extension function.
@@ -284,7 +310,7 @@ namespace XG171_DRONE {
     //% weight=87 color=#E854BC
     export function Extension_avoid_func(status: boolean): void {
         // Add code here
-        Extension_func(status);
+        Extension_func(status)
     }
     /**
     * TODO: Set precision.
