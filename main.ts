@@ -256,10 +256,10 @@ namespace XG171_DRONE {
     /**
     * TODO: Set extension function.
     */
-    //% block="Set extension magnet function $status"
+    //% block="Set magnet function $status"
     //% status.shadow="toggleOnOff"
     //% subcategory=Extended
-    //% weight=90 color=#E854BC
+    //% weight=89 color=#E854BC
     export function Extension_magnet_func(status: boolean): void {
         // Add code here
         Extension_func(status);
@@ -267,10 +267,10 @@ namespace XG171_DRONE {
     /**
     * TODO: Set extension function.
     */
-    //% block="Set extension webcam function $status"
+    //% block="Set webcam function $status"
     //% status.shadow="toggleOnOff"
     //% subcategory=Extended
-    //% weight=90 color=#E854BC
+    //% weight=88 color=#E854BC
     export function Extension_webcam_func(status: boolean): void {
         // Add code here
         Extension_func(status);
@@ -278,10 +278,10 @@ namespace XG171_DRONE {
     /**
     * TODO: Set extension function.
     */
-    //% block="Set extension avoid obstacle function $status"
+    //% block="Set avoid obstacle function $status"
     //% status.shadow="toggleOnOff"
     //% subcategory=Extended
-    //% weight=90 color=#E854BC
+    //% weight=87 color=#E854BC
     export function Extension_avoid_func(status: boolean): void {
         // Add code here
         Extension_func(status);
@@ -292,18 +292,18 @@ namespace XG171_DRONE {
     //% block="Set Optical flow function $status"
     //% status.shadow="toggleOnOff"
     //% subcategory=Extended
-    //% weight=89 color=#E854BC
+    //% weight=86 color=#E854BC
     export function Optical_flow_func(status: boolean): void {
         // Add code here
     }
     /**
     * TODO: Set precision.
     */
-    //% block="Set TOP function $status"
+    //% block="Set TOF function $status"
     //% status.shadow="toggleOnOff"
     //% subcategory=Extended
-    //% weight=88 color=#E854BC
-    export function TOP_func(status: boolean): void {
+    //% weight=85 color=#E854BC
+    export function TOF_func(status: boolean): void {
         // Add code here
     }
     /**
@@ -314,7 +314,7 @@ namespace XG171_DRONE {
     //% speed.min=10 speed.max=100
     //% angle.min=0 angle.max=180
     //% angle.defl=90 speed.defl=50
-    //% weight=87 color=#E854BC
+    //% weight=84 color=#E854BC
     export function Servo_turn_with_speed(speed: number, angle:number)
     {
 
@@ -329,7 +329,7 @@ namespace XG171_DRONE {
     //% angle.min=0 angle.max=180
     //% angle.defl=90 speed.defl=50
     //% deviation.min=0 deviation.max=250 deviation.defl=5
-    //% weight=86 color=#E854BC
+    //% weight=83 color=#E854BC
     export function Servo_turn_with_speed_highaccuracy(speed: number, angle: number, deviation:number) {
 
 
