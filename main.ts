@@ -309,9 +309,10 @@ namespace XG171_DRONE {
     }
     //% block="Rotation action %rotationstate by %angle °"
     //% angle.min=0 angle.max=180
+    //% angle.shadow="protractorPicker"
     //% rotationstate.fieldEditor="gridpicker" rotationstate.fieldOptions.columns=2
     //% weight=70
-    export function Rotation_action(rotationstate: Angleoptions, angle: number): void {
+    export function Rotation_action(rotationstate: Angleoptions, angle: number=90): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x03, 0x06, CMDSeqLoop, rotationstate]
         CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
@@ -607,6 +608,7 @@ namespace XG171_DRONE {
     //% subcategory=Extended
     //% speed.min=10 speed.max=100
     //% angle.min=0 angle.max=180
+    //% angle.shadow="protractorPicker"
     //% angle.defl=90 speed.defl=50
     //% weight=84 color=#E854BC
     export function Servo_turn_with_speed(speed: number, angle:number)
@@ -635,6 +637,7 @@ namespace XG171_DRONE {
     //% subcategory=Extended
     //% speed.min=10 speed.max=100
     //% angle.min=0 angle.max=180
+    //% angle.shadow="protractorPicker"
     //% angle.defl=90 speed.defl=50
     //% deviation.min=0 deviation.max=250 deviation.defl=5
     //% weight=83 color=#E854BC
