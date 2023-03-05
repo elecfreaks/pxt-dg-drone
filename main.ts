@@ -104,6 +104,14 @@ namespace XG171_DRONE {
         myBuff.setNumber(NumberFormat.UInt8BE, myBuff.length - 1,CheckSUM(arr, len))
         serial.writeBuffer(myBuff)
     }
+
+    //% block="Initialize serial port TX$tx RX$rx rate$rate"
+
+    //% weight=99
+    export function Set_UART_port(tx: SerialPin, rx: SerialPin, rate: BaudRate):void{
+        serial.redirect(tx, rx, rate)
+    }
+
     /**
     * TODO: Set work mode.
     */
