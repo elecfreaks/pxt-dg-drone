@@ -92,7 +92,7 @@ namespace XG171_DRONE {
         for (let i = 0; i < len; i++) {
             totalSUM += arr[i]
         }
-        totalSUM = 65535 - totalSUM
+        totalSUM = 65536 - totalSUM
         return totalSUM & 0xFF
         
     }
