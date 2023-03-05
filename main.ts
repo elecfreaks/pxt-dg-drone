@@ -3,6 +3,8 @@
 */
 //% color=#56B7F7  icon="\uf005" block="XG171-DRONE" blockId="XG171"
 namespace XG171_DRONE {
+    let SendLoopNum:number = 20
+    let SendLoopDelay:number = 20000
     export enum WorkMode {
         //% block="Normal Mode" enumval=0
         Normalmode,
@@ -110,10 +112,10 @@ namespace XG171_DRONE {
         let loopNum:number = 0
         let dataArr: number[]=[0x06,0x05,0x00]
         dataArr[3] = mode
-        while(loopNum < 20)
+        while (loopNum < SendLoopNum)
         {
-            Drone_sendData(dataArr,4)
-            control.waitMicros(20000)
+            Drone_sendData(dataArr,dataArr.length)
+            control.waitMicros(SendLoopDelay)
             loopNum++
         }
 
@@ -122,29 +124,68 @@ namespace XG171_DRONE {
     * TODO: Set horizontal flight speed.
     */
     //% block="Set horizontal flight speed %speed cm/s"
-    //% speed.min=0 speed.max=100 speed.defl=50
+    //% speed.min=10 speed.max=100 speed.defl=50
     //% weight=90 
     export function Set_horizontal_speed(speed: number): void {
-        // Add code here
+        let loopNum: number = 0
+        let dataArr: number[] = [0x04, 0x05, 0x00]
+        if (speed > 100) {
+            speed = 100
+        }
+        else if (speed < 10) {
+            speed = 10
+        }
+        dataArr[3] = speed
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
     }
     /**
     * TODO: Set vertical flight speed.
     */
     //% block="Set vertical flight speed %speed cm/s"
-    //% speed.min=10 speed.max=250 speed.defl=10
+    //% speed.min=10 speed.max=100 speed.defl=50
     //% weight=89
     export function Set_vertical_speed(speed: number): void {
-        // Add code here
+        let loopNum: number = 0
+        let dataArr: number[] = [0x0F, 0x05, 0x00]
+        if (speed > 100) {
+            speed = 100
+        }
+        else if (speed < 10) {
+            speed = 10
+        }
+        dataArr[3] = speed
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
     }
     /**
     * TODO: Set vertical flight speed.
     * @param altitude, eg: 100
     */
     //% block="Set flight altitude %altitude cm"
-    //% altitude.min=10 altitude.max=250 altitude.defl=10
+    //% altitude.min=10 altitude.max=250 altitude.defl=100
     //% weight=88
     export function Set_flight_altitude(altitude: number): void {
-        // Add code here
+        let loopNum: number = 0
+        let dataArr: number[] = [0x0F, 0x05, 0x00]
+        if (altitude > 250) {
+            altitude = 250
+        }
+        else if (altitude < 10) {
+            altitude = 10
+        }
+        dataArr[3] = altitude
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
     }
     /**
     * TODO: Set precision.
