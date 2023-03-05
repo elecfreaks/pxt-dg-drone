@@ -5,6 +5,8 @@
 namespace XG171_DRONE {
     let SendLoopNum:number = 20
     let SendLoopDelay:number = 20000
+    let CMDSeqStart:number = 1
+    let CMDSeqLoop: number = CMDSeqStart
     export enum WorkMode {
         //% block="Normal Mode" enumval=0
         Normalmode,
@@ -110,10 +112,13 @@ namespace XG171_DRONE {
     //% weight=91
     export function Set_work_mode(mode: WorkMode): void {
         let loopNum:number = 0
-        let dataArr: number[]=[0x06,0x05,0x00]
+        let dataArr: number[] = [0x06, 0x05, CMDSeqLoop]
+        CMDSeqLoop++
+        if (CMDSeqLoop = 255){
+            CMDSeqLoop = CMDSeqStart
+        }
         dataArr[3] = mode
-        while (loopNum < SendLoopNum)
-        {
+        while (loopNum < SendLoopNum){
             Drone_sendData(dataArr,dataArr.length)
             control.waitMicros(SendLoopDelay)
             loopNum++
@@ -128,7 +133,11 @@ namespace XG171_DRONE {
     //% weight=90 
     export function Set_horizontal_speed(speed: number): void {
         let loopNum: number = 0
-        let dataArr: number[] = [0x04, 0x05, 0x00]
+        let dataArr: number[] = [0x04, 0x05, CMDSeqLoop]
+        CMDSeqLoop++
+        if (CMDSeqLoop = 255) {
+            CMDSeqLoop = CMDSeqStart
+        }
         if (speed > 100) {
             speed = 100
         }
@@ -150,7 +159,11 @@ namespace XG171_DRONE {
     //% weight=89
     export function Set_vertical_speed(speed: number): void {
         let loopNum: number = 0
-        let dataArr: number[] = [0x0F, 0x05, 0x00]
+        let dataArr: number[] = [0x0F, 0x05, CMDSeqLoop]
+        CMDSeqLoop++
+        if (CMDSeqLoop = 255) {
+            CMDSeqLoop = CMDSeqStart
+        }
         if (speed > 100) {
             speed = 100
         }
@@ -173,7 +186,11 @@ namespace XG171_DRONE {
     //% weight=88
     export function Set_flight_altitude(altitude: number): void {
         let loopNum: number = 0
-        let dataArr: number[] = [0x0F, 0x05, 0x00]
+        let dataArr: number[] = [0x05, 0x05, CMDSeqLoop]
+        CMDSeqLoop++
+        if (CMDSeqLoop = 255) {
+            CMDSeqLoop = CMDSeqStart
+        }
         if (altitude > 250) {
             altitude = 250
         }
