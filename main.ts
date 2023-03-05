@@ -4,6 +4,7 @@
 //% color=#56B7F7  icon="\uf005" block="XG171-DRONE" blockId="XG171"
 namespace XG171_DRONE {
     let SendLoopNum:number = 20
+    let ReceiveLoopNum:number = 30
     let SendLoopDelay:number = 20000
     let CMDSeqStart:number = 1
     let CMDSeqLoop: number = CMDSeqStart
@@ -336,7 +337,7 @@ namespace XG171_DRONE {
         let recvdata: number[]
         let altitude: number
         CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
-        while (loopNum < SendLoopNum) {
+        while (loopNum < ReceiveLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             recvBuff = serial.readBuffer(0)
             recvdata = recvBuff.toArray(NumberFormat.UInt8BE)
@@ -346,7 +347,7 @@ namespace XG171_DRONE {
             control.waitMicros(SendLoopDelay)
             loopNum++
         }
-        return 0
+        return -1
     }
     //% block="Drone battery level"
     //% weight=68
@@ -358,7 +359,7 @@ namespace XG171_DRONE {
         let recvdata: number[]
         let battery_level :number
         CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
-        while (loopNum < SendLoopNum) {
+        while (loopNum < ReceiveLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             recvBuff = serial.readBuffer(0)
             recvdata = recvBuff.toArray(NumberFormat.UInt8LE)
@@ -368,7 +369,7 @@ namespace XG171_DRONE {
             control.waitMicros(SendLoopDelay)
             loopNum++
         }
-        return 0
+        return -1
     }
     //% block="Vision shift %shiftstate by %distance cm"
     //% distance.min=0 distance.max=100
@@ -498,7 +499,7 @@ namespace XG171_DRONE {
         let recvdata: number[]
         let altitude: number
         CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
-        while (loopNum < SendLoopNum) {
+        while (loopNum < ReceiveLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             recvBuff = serial.readBuffer(0)
             recvdata = recvBuff.toArray(NumberFormat.UInt8LE)
