@@ -105,11 +105,10 @@ namespace XG171_DRONE {
         serial.writeBuffer(myBuff)
     }
 
-    //% block="Initialize serial port TX$tx RX$rx rate$rate"
-
+    //% block="Initialize serial port TX$tx RX$rx"
     //% weight=99
-    export function Set_UART_port(tx: SerialPin, rx: SerialPin, rate: BaudRate):void{
-        serial.redirect(tx, rx, rate)
+    export function Set_UART_port(tx: SerialPin, rx: SerialPin):void{
+        serial.redirect(tx, rx, 9600)
     }
 
     /**
