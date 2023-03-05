@@ -75,17 +75,17 @@ namespace XG171_DRONE {
     }
     export enum Identifyoptions{
         //% block="Target color block"
-        Color_block = 0x01,
+        Color_block = 0xA1,
         //% block="Target QR code"
-        QR_code = 0x02,
+        QR_code = 0xA2,
         //% block="Obstacle"
-        Obstacle = 0x03,
+        Obstacle = 0xA3,
         //% block="Black Line ⎯"
-        Horizontal_black_line =0x04,
+        Horizontal_black_line =0xA4,
         //% block="Black Line │"
-        Vertical_black_line = 0x05,
+        Vertical_black_line = 0xA5,
         //% block="Black Line ┼"
-        Cross_black_line = 0x06
+        Cross_black_line = 0xA6
     }
     function CheckSUM(arr:number[],len:number):number{
         let totalSUM = 0
@@ -325,14 +325,48 @@ namespace XG171_DRONE {
             loopNum++
         }
     }
-    //% block="Drone current height"
+    //% block="Drone current altitude"
     //% weight=69
-    export function Drone_current_height(): number{
+    export function Drone_current_altitude(): number{
+        serial.readBuffer(0)
+        let loopNum: number = 0
+        let dataArr: number[] = [0x0D, 0x05, CMDSeqLoop, 0xB1]
+        let recvBuff = pins.createBuffer(4)
+        let recvdata: number[]
+        let altitude: number
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            recvBuff = serial.readBuffer(0)
+            recvdata = recvBuff.toArray(NumberFormat.UInt8BE)
+            if (recvdata[0] == 0xAF && recvdata[1] == 0xBF && recvdata[2] == 0xB1) {
+                return recvdata[3];
+            }
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
         return 0
     }
     //% block="Drone battery level"
     //% weight=68
     export function Drone_battery_level(): number {
+        serial.readBuffer(0)
+        let loopNum: number = 0
+        let dataArr: number[] = [0x0D, 0x05, CMDSeqLoop, 0xB2]
+        let recvBuff = pins.createBuffer(4)
+        let recvdata: number[]
+        let battery_level :number
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            recvBuff = serial.readBuffer(0)
+            recvdata = recvBuff.toArray(NumberFormat.UInt8LE)
+            if (recvdata[0] == 0xAF && recvdata[1] == 0xBF && recvdata[2] == 0xB2) {
+                return  recvdata[3];
+            }
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
         return 0
     }
     //% block="Vision shift %shiftstate by %distance cm"
@@ -422,7 +456,6 @@ namespace XG171_DRONE {
         }
     }
 
-
     //% block="Follow shape %shape"
     //% shape.fieldEditor="gridpicker" shape.fieldOptions.columns=3
     //% weight=44 subcategory=Visual color=#EE7C78
@@ -437,6 +470,7 @@ namespace XG171_DRONE {
             loopNum++
         }
     }
+
     //% block="Enter identify black-line mode"
     //% weight=43 subcategory=Visual color=#EE7C78
     export function Set_blackline_identify(color: Coloroptions) {
@@ -450,13 +484,32 @@ namespace XG171_DRONE {
             loopNum++
         }
     }
+
     //% block="Identify target %state"
     //% weight=42 subcategory=Visual color=#EE7C78
     //% state.fieldEditor="gridpicker"
     //% state.fieldOptions.columns=3
     export function Identify_target(state: Identifyoptions): boolean {
+        serial.readBuffer(0)
+        let loopNum: number = 0
+        let dataArr: number[] = [0x0D, 0x05, CMDSeqLoop, state]
+        let recvBuff = pins.createBuffer(4)
+        let recvdata: number[]
+        let altitude: number
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            recvBuff = serial.readBuffer(0)
+            recvdata = recvBuff.toArray(NumberFormat.UInt8LE)
+            if (recvdata[0] == 0xAF && recvdata[1] == 0xBF) {
+                return recvdata[3] == state? true :false
+            }
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
         return false
     }
+
     /**
     * TODO: Set extension function.
     */
@@ -485,7 +538,6 @@ namespace XG171_DRONE {
     //% subcategory=Extended
     //% weight=89 color=#E854BC
     export function Extension_magnet_func(status: boolean): void {
-        // Add code here
         Extension_func(status)
     }
     /**
@@ -496,7 +548,6 @@ namespace XG171_DRONE {
     //% subcategory=Extended
     //% weight=88 color=#E854BC
     export function Extension_webcam_func(status: boolean): void {
-        // Add code here
         Extension_func(status)
     }
     /**
@@ -507,7 +558,6 @@ namespace XG171_DRONE {
     //% subcategory=Extended
     //% weight=87 color=#E854BC
     export function Extension_avoid_func(status: boolean): void {
-        // Add code here
         Extension_func(status)
     }
     /**
@@ -673,6 +723,5 @@ namespace XG171_DRONE {
             loopNum++
         }
     }
-
     
 }
