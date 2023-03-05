@@ -113,10 +113,7 @@ namespace XG171_DRONE {
     export function Set_work_mode(mode: WorkMode): void {
         let loopNum:number = 0
         let dataArr: number[] = [0x06, 0x05, CMDSeqLoop]
-        CMDSeqLoop++
-        if (CMDSeqLoop = 255){
-            CMDSeqLoop = CMDSeqStart
-        }
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = 0 : CMDSeqLoop++
         dataArr[3] = mode
         while (loopNum < SendLoopNum){
             Drone_sendData(dataArr,dataArr.length)
@@ -134,17 +131,11 @@ namespace XG171_DRONE {
     export function Set_horizontal_speed(speed: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x04, 0x05, CMDSeqLoop]
-        CMDSeqLoop++
-        if (CMDSeqLoop = 255) {
-            CMDSeqLoop = CMDSeqStart
-        }
-        if (speed > 100) {
-            speed = 100
-        }
-        else if (speed < 10) {
-            speed = 10
-        }
-        dataArr[3] = speed
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = 0 : CMDSeqLoop++
+
+        dataArr[3] = speed > 100 ? speed = 100 : speed
+        dataArr[3] = speed < 10 ? speed = 10 : speed
+
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             control.waitMicros(SendLoopDelay)
@@ -160,17 +151,11 @@ namespace XG171_DRONE {
     export function Set_vertical_speed(speed: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x0F, 0x05, CMDSeqLoop]
-        CMDSeqLoop++
-        if (CMDSeqLoop = 255) {
-            CMDSeqLoop = CMDSeqStart
-        }
-        if (speed > 100) {
-            speed = 100
-        }
-        else if (speed < 10) {
-            speed = 10
-        }
-        dataArr[3] = speed
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = 0 : CMDSeqLoop++
+
+        dataArr[3] = speed > 100 ? speed = 100 : speed
+        dataArr[3] = speed < 10 ? speed = 10 : speed
+
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             control.waitMicros(SendLoopDelay)
@@ -187,17 +172,11 @@ namespace XG171_DRONE {
     export function Set_flight_altitude(altitude: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x05, 0x05, CMDSeqLoop]
-        CMDSeqLoop++
-        if (CMDSeqLoop = 255) {
-            CMDSeqLoop = CMDSeqStart
-        }
-        if (altitude > 250) {
-            altitude = 250
-        }
-        else if (altitude < 10) {
-            altitude = 10
-        }
-        dataArr[3] = altitude
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = 0 : CMDSeqLoop++
+
+        dataArr[3] = altitude > 250 ? altitude = 250 : altitude
+        dataArr[3] = altitude < 10 ? altitude = 10 : altitude
+
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             control.waitMicros(SendLoopDelay)
@@ -212,7 +191,21 @@ namespace XG171_DRONE {
     //% deviation.min=5 deviation.max=100 deviation.defl=5
     //% weight=87 subcategory=Visual color=#EE7C78
     export function Highaccuracy_altitude(deviation: number, altitude:number): void {
-        // Add code here
+        let loopNum: number = 0
+        let dataArr: number[] = [0x13, 0x06, CMDSeqLoop]
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = 0 : CMDSeqLoop++
+
+        dataArr[3] = deviation > 100 ? deviation = 100 : deviation
+        dataArr[3] = deviation < 5 ? deviation = 5 : deviation
+
+        dataArr[4] = altitude > 250 ? altitude = 250 : altitude
+        dataArr[4] = altitude < 10 ? altitude = 10 : altitude
+
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
     }
     /**
     * TODO: Set precision.
@@ -221,7 +214,18 @@ namespace XG171_DRONE {
     //% deviation.min=5 deviation.max=100 deviation.defl=5
     //% weight=99 subcategory=Visual color=#EE7C78
     export function Highaccuracy_loading(deviation: number): void {
-        // Add code here
+        let loopNum: number = 0
+        let dataArr: number[] = [0x16, 0x05, CMDSeqLoop]
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = 0 : CMDSeqLoop++
+
+        dataArr[3] = deviation > 100 ? deviation = 100 : deviation
+        dataArr[3] = deviation < 10 ? deviation = 10 : deviation
+
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
     }
     /**
     * TODO: Takeoff.
