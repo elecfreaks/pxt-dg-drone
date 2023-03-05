@@ -9,9 +9,9 @@ namespace XG171_DRONE {
     let CMDSeqLoop: number = CMDSeqStart
     export enum WorkMode {
         //% block="Normal Mode" enumval=0
-        Normalmode,
+        Normalmode = 0x01,
         //% block="Follow Line" enumval=1
-        TrackingLine
+        TrackingLine = 0x02
     }
     export enum Angleoptions {
         //% block="Clockwise"
