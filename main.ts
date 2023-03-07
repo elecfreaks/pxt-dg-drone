@@ -504,7 +504,7 @@ namespace XG171_DRONE {
             recvBuff = serial.readBuffer(0)
             recvdata = recvBuff.toArray(NumberFormat.UInt8LE)
             if (recvdata[0] == 0xAF && recvdata[1] == 0xBF) {
-                return recvdata[3] == state? true :false
+                return recvdata[2] == state? true :false
             }
             control.waitMicros(SendLoopDelay)
             loopNum++
