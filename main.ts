@@ -121,7 +121,7 @@ namespace XG171_DRONE {
     export function Set_work_mode(mode: WorkMode): void {
         let loopNum:number = 0
         let dataArr: number[] = [0x06, 0x05, CMDSeqLoop, mode]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum){
             Drone_sendData(dataArr,dataArr.length)
@@ -139,7 +139,7 @@ namespace XG171_DRONE {
     export function Set_horizontal_speed(speed: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x04, 0x05, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = speed > 100 ? speed = 100 : speed
         dataArr[3] = speed < 10 ? speed = 10 : speed
@@ -159,7 +159,7 @@ namespace XG171_DRONE {
     export function Set_vertical_speed(speed: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x0F, 0x05, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = speed > 100 ? speed = 100 : speed
         dataArr[3] = speed < 10 ? speed = 10 : speed
@@ -180,7 +180,7 @@ namespace XG171_DRONE {
     export function Set_flight_altitude(altitude: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x05, 0x05, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = altitude > 250 ? altitude = 250 : altitude
         dataArr[3] = altitude < 10 ? altitude = 10 : altitude
@@ -201,7 +201,7 @@ namespace XG171_DRONE {
     export function Highaccuracy_altitude(deviation: number, altitude:number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x13, 0x06, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = deviation > 100 ? deviation = 100 : deviation
         dataArr[3] = deviation < 5 ? deviation = 5 : deviation
@@ -224,7 +224,7 @@ namespace XG171_DRONE {
     export function Highaccuracy_loading(deviation: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x16, 0x05, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = deviation > 100 ? deviation = 100 : deviation
         dataArr[3] = deviation < 10 ? deviation = 10 : deviation
@@ -244,7 +244,7 @@ namespace XG171_DRONE {
     export function Takeoff(altitude: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x00, 0x05, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = altitude > 250 ? altitude = 250 : altitude
         dataArr[3] = altitude < 10 ? altitude = 10 : altitude
@@ -261,7 +261,7 @@ namespace XG171_DRONE {
     export function Loading() {
         let loopNum: number = 0
         let dataArr: number[] = [0x08, 0x04, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
@@ -279,7 +279,7 @@ namespace XG171_DRONE {
     export function Move_action(directionstate: Directionoptions, distance: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x01, 0x06, CMDSeqLoop, directionstate]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[4] = distance > 250 ? distance = 250 : distance
         dataArr[4] = distance < 10 ? distance = 10 : distance
@@ -297,7 +297,7 @@ namespace XG171_DRONE {
     export function Roll_action(rollstate: Rolloptions, circle:number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x02, 0x06, CMDSeqLoop, rollstate]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[4] = circle > 2 ? circle = 2 : circle
         dataArr[4] = circle < 1 ? circle = 1 : circle
@@ -316,7 +316,7 @@ namespace XG171_DRONE {
     export function Rotation_action(rotationstate: Angleoptions, angle: number=90): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x03, 0x06, CMDSeqLoop, rotationstate]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[4] = angle > 180 ? angle = 180 : angle
         dataArr[4] = angle < 0 ? angle = 0 : angle
@@ -336,7 +336,7 @@ namespace XG171_DRONE {
         let recvBuff = pins.createBuffer(4)
         let recvdata: number[]
         let altitude: number
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
         while (loopNum < ReceiveLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             recvBuff = serial.readBuffer(0)
@@ -358,7 +358,7 @@ namespace XG171_DRONE {
         let recvBuff = pins.createBuffer(4)
         let recvdata: number[]
         let battery_level :number
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
         while (loopNum < ReceiveLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             recvBuff = serial.readBuffer(0)
@@ -378,7 +378,7 @@ namespace XG171_DRONE {
     export function Vision_shifts(shiftstate: Shiftoptions, distance: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x12, 0x06, CMDSeqLoop, shiftstate]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[4] = distance > 100 ? distance = 100 : distance
         dataArr[4] = distance < 0 ? distance = 0 : distance
@@ -394,7 +394,7 @@ namespace XG171_DRONE {
     export function Set_identify_QRcode(codeid: number) {
         let loopNum: number = 0
         let dataArr: number[] = [0x12, 0x06, CMDSeqLoop,0x07,codeid]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
@@ -407,7 +407,7 @@ namespace XG171_DRONE {
     export function Follow_QRcode(codeid:number){
         let loopNum: number = 0
         let dataArr: number[] = [0x06, 0x06, CMDSeqLoop,0x02,codeid]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
@@ -420,7 +420,7 @@ namespace XG171_DRONE {
     export function Correct_direction_byQR(color: Coloroptions) {
         let loopNum: number = 0
         let dataArr: number[] = [0x14, 0x04, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
@@ -434,7 +434,7 @@ namespace XG171_DRONE {
     export function Set_identify_color(color: Coloroptions){
         let loopNum: number = 0
         let dataArr: number[] = [0x06, 0x06, CMDSeqLoop, 0x06, color]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
@@ -449,7 +449,7 @@ namespace XG171_DRONE {
     export function Follow_color(color: Coloroptions){
         let loopNum: number = 0
         let dataArr: number[] = [0x06, 0x06, CMDSeqLoop, 0x00, color]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
@@ -464,7 +464,7 @@ namespace XG171_DRONE {
     export function Follow_shape(shape: Shapeoptions) {
         let loopNum: number = 0
         let dataArr: number[] = [0x06, 0x06, CMDSeqLoop,0x03,shape]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
@@ -478,7 +478,7 @@ namespace XG171_DRONE {
     export function Set_blackline_identify(color: Coloroptions) {
         let loopNum: number = 0
         let dataArr: number[] = [0x06, 0x05, CMDSeqLoop, 0x08]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
@@ -498,7 +498,7 @@ namespace XG171_DRONE {
         let recvBuff = pins.createBuffer(4)
         let recvdata: number[]
         let altitude: number
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
         while (loopNum < ReceiveLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
             recvBuff = serial.readBuffer(0)
@@ -522,7 +522,7 @@ namespace XG171_DRONE {
     export function Extension_func(status: boolean): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x0A, 0x05, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = status ? 0 : 1
 
@@ -572,7 +572,7 @@ namespace XG171_DRONE {
     export function Optical_flow_func(status: boolean): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x10, 0x05, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = status ? 0 : 1
 
@@ -592,7 +592,7 @@ namespace XG171_DRONE {
     export function TOF_func(status: boolean): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x11, 0x05, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = status ? 0 : 1
 
@@ -616,7 +616,7 @@ namespace XG171_DRONE {
     {
         let loopNum: number = 0
         let dataArr: number[] = [0x0E, 0x06, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = speed > 100 ? speed = 100 : speed
         dataArr[3] = speed < 0 ? speed = 0 : speed
@@ -645,7 +645,7 @@ namespace XG171_DRONE {
     export function Servo_turn_with_speed_highaccuracy(deviation:number, speed: number, angle: number) {
         let loopNum: number = 0
         let dataArr: number[] = [0x17, 0x07, CMDSeqLoop]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[3] = deviation > 250 ? deviation = 250 : deviation
         dataArr[3] = deviation < 0 ? deviation = 0 : deviation
@@ -678,7 +678,7 @@ namespace XG171_DRONE {
     export function Set_lamp_RGB(R: number, G: number, B: number): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x0B, 0x0A, CMDSeqLoop,0x08,0x03]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         dataArr[5] = R > 255 ? R = 255 : R
         dataArr[5] = R < 0 ? R = 0 : R
@@ -719,7 +719,7 @@ namespace XG171_DRONE {
     export function Set_lamp_close() {
         let loopNum: number = 0
         let dataArr: number[] = [0x0B, 0x0A, CMDSeqLoop, 0x08, 0x03,0x00,0x00,0x00,0x00]
-        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop++
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
