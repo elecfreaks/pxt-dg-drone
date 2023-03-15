@@ -3,9 +3,7 @@
     "version": "0.1.4",
     "description": "Xg171",
     "dependencies": {
-        "core": "*",
-        "radio": "*",
-        "microphone": "*"
+        "core": "*"
     },
     "files": [
         "README.md",
