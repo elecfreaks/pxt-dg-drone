@@ -130,7 +130,6 @@ namespace XG171_DRONE {
             control.waitMicros(SendLoopDelay)
             loopNum++
         }
-
     }
     /**
     * TODO: Set horizontal flight speed.
