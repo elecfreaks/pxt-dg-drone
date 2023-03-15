@@ -1,7 +1,7 @@
 {
     "name": "pxt-XG171-DRONE",
     "version": "0.1.4",
-    "description": "Xg171",
+    "description": "Xg171 Drone",
     "dependencies": {
         "core": "*"
     },
