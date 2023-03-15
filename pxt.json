@@ -1,7 +1,7 @@
 {
     "name": "pxt-XG171-DRONE",
     "version": "0.1.3",
-    "description": "",
+    "description": "Xg171 编程DIY夹子无人机",
     "dependencies": {
         "core": "*",
         "radio": "*",
@@ -9,8 +9,8 @@
     },
     "files": [
         "README.md",
-        "main.blocks",
-        "main.ts"
+        "main.ts",
+        "_locales/zh-CN/pxt-XG171-DRONE-strings.json"
     ],
     "testFiles": [
         "test.ts"
