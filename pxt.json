@@ -1,7 +1,7 @@
 {
     "name": "pxt-XG171-DRONE",
     "version": "0.1.3",
-    "description": "Xg171 编程DIY夹子无人机",
+    "description": "Xg171",
     "dependencies": {
         "core": "*",
         "radio": "*",
