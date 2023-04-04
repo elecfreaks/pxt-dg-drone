@@ -74,6 +74,22 @@ namespace XG171_DRONE {
         //% block="Black"
         Blck = 0x03
     }
+    export enum Motoroptions {
+        //% block="A1"
+        A1 = 0x0,
+        //% block="A2"
+        A2 = 0x01,
+        //% block="B1"
+        B1 = 0x02,
+        //% block="B2"
+        B2 = 0x03
+    } 
+    export enum Motordirectionoptions {
+        //% block="Corotation"
+        Corotation = 0x00,
+        //% block="Reversal"
+        Reversal = 0x01
+    }
     export enum Identifyoptions{
         //% block="Target color block"
         Color_block = 0xA1,
@@ -663,7 +679,33 @@ namespace XG171_DRONE {
             loopNum++
         }
     }
+    /**
+    * TODO: Set .
+    */
+    //% block="Set motor %order %direction rotation output to %power \\% "
+    //% order.fieldEditor="gridpicker" order.fieldOptions.columns=2
+    //% direction.fieldEditor="gridpicker" direction.fieldOptions.columns=2
+    //% subcategory=Extended
+    //% power.min=0 power.max=100
+    //% power.defl=50
+    //% weight=82 color=#E854BC
+    export function Set_Motor_power(order: Motoroptions, direction: Motordirectionoptions, power: number) {
+        let loopNum: number = 0
+        let dataArr: number[] = [0x18, 0x07, CMDSeqLoop]
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop += 1
 
+        dataArr[3] = order
+        dataArr[4] = direction
+
+        dataArr[5] = power > 100 ? power = 100 : power
+        dataArr[5] = power < 0 ? power = 0 : power
+
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
+    }
     /**
     * Set RGB color of lamp.
     * @param R color value of RGB color, eg: 83
@@ -721,6 +763,26 @@ namespace XG171_DRONE {
         let loopNum: number = 0
         let dataArr: number[] = [0x0B, 0x0A, CMDSeqLoop, 0x08, 0x03,0x00,0x00,0x00,0x00]
         CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop+=1
+
+        while (loopNum < SendLoopNum) {
+            Drone_sendData(dataArr, dataArr.length)
+            control.waitMicros(SendLoopDelay)
+            loopNum++
+        }
+    }
+    /**
+    * TODO: Set_status_light
+    */
+    //% block="Set status light $status"
+    //% status.shadow="toggleOnOff"
+    //% subcategory=Extended
+    //% weight=70 color=#E854BC
+    export function Set_status_light(status: boolean): void {
+        let loopNum: number = 0
+        let dataArr: number[] = [0x19, 0x05, CMDSeqLoop]
+        CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop += 1
+
+        dataArr[3] = status ? 0 : 1
 
         while (loopNum < SendLoopNum) {
             Drone_sendData(dataArr, dataArr.length)
