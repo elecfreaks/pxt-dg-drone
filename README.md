@@ -1,31 +1,28 @@
+![](https://img.shields.io/badge/Plantfrom-Micro%3Abit-red) ![](https://img.shields.io/travis/com/elecfreaks/pxt-tpbot) ![](https://img.shields.io/github/v/release/elecfreaks/pxt-tpbot) ![](https://img.shields.io/github/last-commit/elecfreaks/pxt-tpbot) ![](https://img.shields.io/github/languages/top/elecfreaks/pxt-tpbot) ![](https://img.shields.io/github/issues/elecfreaks/pxt-tpbot) ![](https://img.shields.io/github/license/elecfreaks/pxt-tpbot) 
 
-> Open this page at [https://lionyhw.github.io/pxt-xg171-drone/](https://lionyhw.github.io/pxt-xg171-drone/)
+# TPBot Package
 
-## Use as Extension
+![](/images.png/)
 
-This repository can be added as an **extension** in MakeCode.
+This extension is designed to programme and drive the TPBot, You can [get TPBot from the Elecfreaks store](https://www.elecfreaks.com/store/tpbot.html)
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/lionyhw/pxt-xg171-drone** and import
+## Code Example
+```JavaScript
 
-## Edit this project ![Build status badge](https://github.com/lionyhw/pxt-xg171-drone/workflows/MakeCode/badge.svg)
+let right = 0
+let left = 0
+TPBot.headlightColor(0xff0000)
+basic.forever(function () {
+    left = Math.randomRange(-100, 100)
+    right = Math.randomRange(-100, 100)
+    TPBot.setWheels(left, right)
+    basic.pause(1000)
+})
 
-To edit this repository in MakeCode.
+```
+## Supported targets
+for PXT/microbit
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/lionyhw/pxt-xg171-drone** and click import
+## License
+MIT
 
-## Blocks preview
-
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
-
-![A rendered view of the blocks](https://github.com/lionyhw/pxt-xg171-drone/raw/master/.github/makecode/blocks.png)
-
-#### Metadata (used for search, rendering)
-
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
