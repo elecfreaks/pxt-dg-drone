@@ -39,7 +39,7 @@
   "XG171_DRONE.Rolloptions.Roll_left|block": "左",
   "XG171_DRONE.Rolloptions.Roll_right|block": "右",
   "XG171_DRONE.Rotation_action|block": "沿 %rotationstate 方向，原地旋转 %angle 度",
-  "XG171_DRONE.Servo_turn_with_speed_highaccuracy|block": "舵机误差在 %deviation CM内以 %speed \\% 的速度转动到 %angle 度",
+  "XG171_DRONE.Servo_turn_with_speed_highaccuracy|block": "舵机误差在 %deviation CM 内以 %speed \\% 的速度转动到 %angle 度",
   "XG171_DRONE.Servo_turn_with_speed|block": "舵机以 %speed \\% 的速度转动到 %angle 度",
   "XG171_DRONE.Set_blackline_identify|block": "进入黑线识别模式",
   "XG171_DRONE.Set_flight_altitude|block": "设置飞行高度 %altitude 厘米",
