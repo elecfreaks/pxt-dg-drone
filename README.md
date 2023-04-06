@@ -9,15 +9,20 @@ This extension is designed to programme and drive the TPBot, You can [get TPBot 
 ## Code Example
 ```JavaScript
 
-let right = 0
-let left = 0
-TPBot.headlightColor(0xff0000)
-basic.forever(function () {
-    left = Math.randomRange(-100, 100)
-    right = Math.randomRange(-100, 100)
-    TPBot.setWheels(left, right)
-    basic.pause(1000)
+input.onButtonPressed(Button.A, function () {
+    XG171_DRONE.Takeoff(100)
+    basic.pause(2000)
+    XG171_DRONE.Move_action(XG171_DRONE.Directionoptions.Forward, 20)
+    basic.pause(5000)
+    XG171_DRONE.Loading()
 })
+XG171_DRONE.Set_serial_port(SerialPin.P1, SerialPin.P2)
+XG171_DRONE.Set_status_light(true)
+XG171_DRONE.Set_work_mode(XG171_DRONE.WorkMode.Normalmode)
+XG171_DRONE.Set_horizontal_speed(50)
+XG171_DRONE.Set_vertical_speed(50)
+XG171_DRONE.Set_flight_altitude(100)
+
 
 ```
 ## Supported targets
