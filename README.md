@@ -4,7 +4,7 @@
 
 ![](/images.png/)
 
-This extension is designed to programme and drive the XG171-Drone, You can [get XG171 from here](https://detail.1688.com/offer/711761659326.html)
+This extension is designed to programme and drive the XG171-Drone, You can [get XG171-Drone from here](https://detail.1688.com/offer/711761659326.html)
 
 ## Code Example
 ```JavaScript
