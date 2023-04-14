@@ -1,6 +1,6 @@
 {
     "name": "XG DIY Drone",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Xg171 Drone",
     "dependencies": {
         "core": "*"
