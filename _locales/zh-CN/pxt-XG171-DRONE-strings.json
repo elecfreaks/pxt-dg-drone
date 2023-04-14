@@ -73,7 +73,7 @@
   "XG171_DRONE.Vision_shifts|block": "视觉向 %shiftstate 偏移 %distance 厘米",
   "XG171_DRONE.WorkMode.Normalmode|block": "常规模式",
   "XG171_DRONE.WorkMode.TrackingLine|block": "循线模式",
-  "XG171_DRONE|block": "XG171",
+  "XG171_DRONE|block": "XG DIY Drone",
   "{id:category}XG171_DRONE": "XG171-夹子无人机",
   "{id:subcategory}Extended": "扩展",
   "{id:subcategory}Visual": "视觉"

@@ -1,7 +1,7 @@
 /**
 * Functions to XG171_DRONE by Llane.
 */
-//% color=#56B7F7  icon="\uf0fb" block="XG-DIY-DRONE"
+//% color=#56B7F7  icon="\uf0fb" block="XG DIY DRONE"
 namespace XG171_DRONE {
     let SendLoopNum: number = 20
     let ReceiveLoopNum: number = 30
