@@ -1,13 +1,14 @@
 {
-    "name": "XG DIY Drone",
-    "version": "0.3.1",
-    "description": "XG DIY Drone is a drone that can be programmed and controlled using micro:bit.",
+    "name": "pxt-XG171-DRONE",
+    "version": "0.3.0",
+    "description": "Xg171 Drone",
     "dependencies": {
         "core": "*"
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "_locales/zh-CN/pxt-XG171-DRONE-strings.json"
     ],
     "testFiles": [
         "test.ts"
