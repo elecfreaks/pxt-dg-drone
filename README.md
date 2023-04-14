@@ -1,10 +1,10 @@
 ![](https://img.shields.io/badge/Plantfrom-Micro%3Abit-red) ![](https://img.shields.io/github/v/release/lionyhw/pxt-XG171-DRONE) ![](https://img.shields.io/github/last-commit/lionyhw/pxt-XG171-DRONE) ![](https://img.shields.io/github/languages/top/lionyhw/pxt-XG171-DRONE) ![](https://img.shields.io/github/issues/lionyhw/pxt-XG171-DRONE) ![](https://img.shields.io/github/license/lionyhw/pxt-XG171-DRONE) 
 
-# XG171-Drone Package
+# XG DIY Drone Package
 
-![](/images.png/)
+XG DIY Drone is an unmanned aerial vehicle jointly developed by XG and ELECFREAKS, which is compact and flexible in appearance. The functional parameters of XG DIY Drone have been opened, and when used with micro:bit, it will bring you endless imagination and creative space. It is a good tool for learning programming and drones.
 
-This extension is designed to programme and drive the XG171-Drone, You can [get XG171-Drone from here.](https://detail.1688.com/offer/711761659326.html)
+This extension is designed to programme and drive the XG171-Drone, You can [get XG171-Drone from here.](https://detail.1688.com/offer/712881542407.html)
 
 ## Code Example
 ```JavaScript
