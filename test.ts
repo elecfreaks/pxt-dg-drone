@@ -1,6 +1,9 @@
 input.onButtonPressed(Button.A, function () {
     XG171_DRONE.moveAction(XG171_DRONE.Directionoptions.Forward, 50)
 })
+input.onButtonPressed(Button.AB, function () {
+    XG171_DRONE.loading()
+})
 input.onButtonPressed(Button.B, function () {
     XG171_DRONE.rollAction(XG171_DRONE.Rolloptions.Roll_back, 1)
 })
