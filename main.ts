@@ -783,7 +783,7 @@ namespace XG171_DRONE {
     //% block="set lamp color to $color"
     //% weight=75 subcategory=Extended
     //% color.shadow="colorNumberPicker" color=#E854BC
-    export function Set_lamp_color(color: number) {
+    export function setLampColor(color: number) {
         let r, g, b: number = 0
         r = color >> 16
         g = (color >> 8) & 0xFF

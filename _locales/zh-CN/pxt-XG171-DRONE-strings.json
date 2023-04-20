@@ -5,7 +5,7 @@
   "XG171_DRONE.Coloroptions.Blue|block": "蓝色",
   "XG171_DRONE.Coloroptions.Green|block": "绿色",
   "XG171_DRONE.Coloroptions.Red|block": "红色",
-  "XG171_DRONE.correct_direction_byQR|block": "通过二维码方向矫正机头",
+  "XG171_DRONE.correctDirectionByQR|block": "通过二维码方向矫正机头",
   "XG171_DRONE.Directionoptions.Backward|block": "后退",
   "XG171_DRONE.Directionoptions.Down|block": "下降",
   "XG171_DRONE.Directionoptions.Forward|block": "前进",
