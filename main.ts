@@ -737,7 +737,7 @@ namespace XG171_DRONE {
         dataArr[5] = power > 100 ? power = 100 : power
         dataArr[5] = power < 0 ? power = 0 : power
 
-        while (loopNum < SendLoopNum) { 
+        while (loopNum < SendLoopNum) {
             droneSendData(dataArr, dataArr.length)
             control.waitMicros(SendLoopDelay)
             loopNum++
