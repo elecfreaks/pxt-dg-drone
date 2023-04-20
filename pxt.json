@@ -2,6 +2,7 @@
     "name": "pxt-XG171-DRONE",
     "version": "1.0.0",
     "description": "XG DIY Drone is a drone that can be programmed and controlled using micro:bit.",
+    "license": "MIT",
     "dependencies": {
         "core": "*"
     },
