@@ -460,7 +460,7 @@ namespace XG171_DRONE {
     */
     //% block="correct flight direction by QR code position"
     //% weight=59 subcategory=Visual color=#EE7C78
-    export function correctDirectionByQR(color: Coloroptions) {
+    export function correctDirectionByQR() {
         let loopNum: number = 0
         let dataArr: number[] = [0x14, 0x04, CMDSeqLoop]
         CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop += 1
@@ -477,7 +477,7 @@ namespace XG171_DRONE {
     //% block="enter identify %color Color block Mode"
     //% color.fieldEditor="gridpicker" color.fieldOptions.columns=2
     //% weight=51 subcategory=Visual color=#EE7C78
-    export function SetIdentifyColor(color: Coloroptions) {
+    export function setIdentifyColor(color: Coloroptions) {
         let loopNum: number = 0
         let dataArr: number[] = [0x06, 0x06, CMDSeqLoop, 0x06, color]
         CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop += 1
