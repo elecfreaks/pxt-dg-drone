@@ -4,7 +4,7 @@
 
 XG DIY Drone is an unmanned aerial vehicle jointly developed by XG and ELECFREAKS, which is compact and flexible in appearance. The functional parameters of XG DIY Drone have been opened, and when used with micro:bit, it will bring you endless imagination and creative space. It is a good tool for learning programming and drones.
 
-This extension is designed to programme and drive the XG171-Drone, You can [get XG171-Drone from here.](https://detail.1688.com/offer/714108247721.html?share_token=P7UH+AFtCuAn1qSTiTHkXtp/Eko7ucavUg0KGJoHb7B9l/gmI/xD5g==&__share_id=84bc90e1-1312-4a1b-becc-f5ec09643781&rpg-cnt=share.offerDetail&sk=order&__zhi_token=1L0S2X364FWaj&spm=a262eq.8992535/20230503.5103953.0)
+This extension is designed to programme and drive the XG171-Drone, You can [get XG171-Drone from here.](https://detail.1688.com/offer/714108247721.html?share_token=P7UH+AFtCuAn1qSTiTHkXtp/Eko7ucavUg0KGJoHb7B9l/gmI/xD5g==&__share_id=84bc90e1-1312-4a1b-becc-f5ec09643781&rpg-cnt=share.offerDetail&sk=order&__zhi_token=1L0S2X364FWaj&spm=a262eq.8992535/20230503.5103953.0), And you can refer to this [wiki](http://www.xgsteam.com/aidNew?code=27)
 
 ## Code Example
 ```JavaScript
