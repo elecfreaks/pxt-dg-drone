@@ -15,93 +15,93 @@ namespace XG171_DRONE {
         TrackingLine = 0x02
     }
     export enum Angleoptions {
-        //% block="Clockwise"
+        //% block="clockwise"
         Clockwise = 0x00,
-        //% block="Anticlockwise"
+        //% block="anticlockwise"
         Anticlockwise = 0x01
     }
     export enum Directionoptions {
-        //% block="Forward" 
+        //% block="forward" 
         Forward = 0x00,
-        //% block="Backward"
+        //% block="backward"
         Backward = 0x01,
-        //% block="Left" 
+        //% block="left" 
         Left = 0x02,
-        //% block="Right"
+        //% block="right"
         Right = 0x03,
-        //% block="Up" 
+        //% block="up" 
         Up = 0x04,
-        //% block="Down"
+        //% block="down"
         Down = 0x05
     }
     export enum Rolloptions {
-        //% block="Forward" 
+        //% block="forward" 
         Roll_forward = 0x00,
-        //% block="Back"
+        //% block="back"
         Roll_back = 0x01,
-        //% block="Left" 
+        //% block="left" 
         Roll_left = 0x02,
-        //% block="Right"
+        //% block="right"
         Roll_right = 0x03
     }
     export enum Shiftoptions {
-        //% block="Forward" 
+        //% block="forward" 
         Forward = 0x00,
-        //% block="Backward"
+        //% block="backward"
         Backward = 0x01,
-        //% block="Left" 
+        //% block="left" 
         Left = 0x02,
-        //% block="Right"
+        //% block="right"
         Right = 0x03,
-        //% block="Clear" 
+        //% block="clear" 
         Clear = 0x04
     }
     export enum Shapeoptions {
-        //% block="Triangle"
+        //% block="triangle"
         Triangle = 0x00,
-        //% block="Circular"
+        //% block="circular"
         Circular = 0x01,
-        //% block="Square"
+        //% block="square"
         Square = 0x02
     }
     export enum Coloroptions {
-        //% block="Red"
+        //% block="red"
         Red = 0x0,
-        //% block="Blue"
+        //% block="blue"
         Blue = 0x01,
-        //% block="Green"
+        //% block="green"
         Green = 0x02,
-        //% block="Black"
+        //% block="black"
         Blck = 0x03
     }
     export enum Motoroptions {
-        //% block="A1"
+        //% block="a1"
         A1 = 0x0,
-        //% block="A2"
+        //% block="a2"
         A2 = 0x01,
-        //% block="B1"
+        //% block="b1"
         B1 = 0x02,
-        //% block="B2"
+        //% block="b2"
         B2 = 0x03
     }
     export enum Motordirectionoptions {
-        //% block="Corotation"
+        //% block="corotation"
         Corotation = 0x00,
-        //% block="Reversal"
+        //% block="reversal"
         Reversal = 0x01
     }
     export enum Identifyoptions {
-        //% block="Target color block"
+        //% block="target color block"
         Color_block = 0xA1,
-        //% block="Target QR code"
+        //% block="target QR code"
         QR_code = 0xA2,
-        //% block="Obstacle"
+        //% block="obstacle"
         Obstacle = 0xA3,
-        //% block="Black Line ⎯"
+        //% block="black Line ⎯"
         Horizontal_black_line = 0xA4,
-        //% block="Black Line │"
+        //% block="black Line │"
         Vertical_black_line = 0xA5,
-        //% block="Black Line ┼"
+        //% block="black Line ┼"
         Cross_black_line = 0xA6
     }
     function checkSUM(arr: number[], len: number): number {
@@ -644,7 +644,7 @@ namespace XG171_DRONE {
     //% status.shadow="toggleOnOff"
     //% subcategory=Extended
     //% weight=85 color=#E854BC
-    export function TOFFunc(status: boolean): void {
+    export function tofFunc(status: boolean): void {
         let loopNum: number = 0
         let dataArr: number[] = [0x11, 0x05, CMDSeqLoop]
         CMDSeqLoop = CMDSeqLoop == 255 ? CMDSeqLoop = CMDSeqStart : CMDSeqLoop += 1

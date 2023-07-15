@@ -68,7 +68,7 @@
   "XG171_DRONE.Shiftoptions.Forward|block": "前进",
   "XG171_DRONE.Shiftoptions.Left|block": "左飞",
   "XG171_DRONE.Shiftoptions.Right|block": "右飞",
-  "XG171_DRONE.TOFFunc|block": "设置激光 TOF 功能 $status",
+  "XG171_DRONE.tofFunc|block": "设置激光 TOF 功能 $status",
   "XG171_DRONE.takeoff|block": "起飞 %altitude 厘米",
   "XG171_DRONE.visionShifts|block": "视觉向 %shiftstate 偏移 %distance 厘米",
   "XG171_DRONE.WorkMode.Normalmode|block": "常规模式",
